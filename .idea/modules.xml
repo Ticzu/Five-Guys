@@ -3,18 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Five-Guys.iml" filepath="$PROJECT_DIR$/Five-Guys.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Five-Guys.iml" filepath="$PROJECT_DIR$/Five-Guys.iml" />
       <module fileurl="file://$PROJECT_DIR$/Worksheet_problem6.iml" filepath="$PROJECT_DIR$/Worksheet_problem6.iml" />
       <module fileurl="file://$PROJECT_DIR$/hw_2.21/hw_2.21.iml" filepath="$PROJECT_DIR$/hw_2.21/hw_2.21.iml" />
       <module fileurl="file://$PROJECT_DIR$/hw_2.21/hw_2.21.iml" filepath="$PROJECT_DIR$/hw_2.21/hw_2.21.iml" />
-      <module fileurl="file://$PROJECT_DIR$/hw_2.21/hw_2.21.iml" filepath="$PROJECT_DIR$/hw_2.21/hw_2.21.iml" />
-      <module fileurl="file://$PROJECT_DIR$/hw_2.22/hw_2.22.iml" filepath="$PROJECT_DIR$/hw_2.22/hw_2.22.iml" />
       <module fileurl="file://$PROJECT_DIR$/hw_2.22/hw_2.22.iml" filepath="$PROJECT_DIR$/hw_2.22/hw_2.22.iml" />
       <module fileurl="file://$PROJECT_DIR$/hw_2.22/hw_2.22.iml" filepath="$PROJECT_DIR$/hw_2.22/hw_2.22.iml" />
       <module fileurl="file://$PROJECT_DIR$/hw_2.23/hw_2.23.iml" filepath="$PROJECT_DIR$/hw_2.23/hw_2.23.iml" />
       <module fileurl="file://$PROJECT_DIR$/hw_2.23/hw_2.23.iml" filepath="$PROJECT_DIR$/hw_2.23/hw_2.23.iml" />
-      <module fileurl="file://$PROJECT_DIR$/hw_2.23/hw_2.23.iml" filepath="$PROJECT_DIR$/hw_2.23/hw_2.23.iml" />
-      <module fileurl="file://$PROJECT_DIR$/hw_challenge/hw_challenge.iml" filepath="$PROJECT_DIR$/hw_challenge/hw_challenge.iml" />
       <module fileurl="file://$PROJECT_DIR$/hw_challenge/hw_challenge.iml" filepath="$PROJECT_DIR$/hw_challenge/hw_challenge.iml" />
       <module fileurl="file://$PROJECT_DIR$/hw_challenge/hw_challenge.iml" filepath="$PROJECT_DIR$/hw_challenge/hw_challenge.iml" />
     </modules>
