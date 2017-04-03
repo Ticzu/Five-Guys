@@ -90,7 +90,13 @@
         android:id="@id/btnSubmit"
         android:layout_below="@id/txtlname"
         />
-
+    <TextView
+        android:text="victor's password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/display"
+        android:layout_below="@id/btnSubmit"
+        />
 
 
 
