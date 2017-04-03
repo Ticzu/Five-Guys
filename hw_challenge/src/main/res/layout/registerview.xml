@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/activity_register"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.example.hw_challenge.Register">
+
+    <TextView
+        android:text="Username:"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/txtusrname"
+        android:layout_column="1"
+        android:textSize="18sp"
+        android:gravity="center"/>
+
+    <TextView
+        android:text="Password:"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/txtusrpass"
+        android:layout_column="2"
+        android:layout_below="@id/txtusrname"
+        android:textSize="18sp"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:text="FirstName"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/txtfname"
+        android:layout_below="@id/txtusrpass"
+        android:layout_column="3"
+        android:textSize="18sp"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:text="LastName"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/txtlname"
+        android:layout_column="4"
+        android:layout_below="@id/txtfname"
+        android:textSize="18sp"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id = "@+id/edtUser"
+        android:hint="username here"
+        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_toRightOf="@id/txtusrname"
+        android:layout_alignTop="@id/txtusrname"
+        />
+
+    <EditText
+        android:id="@+id/edtpsw"
+        android:hint="password here"
+        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/txtusrname"
+        android:layout_toRightOf="@id/txtusrpass"
+        />
+
+    <EditText
+        android:id="@+id/edtfname"
+        android:hint="firstname here"
+        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_toRightOf="@id/txtfname"
+        android:layout_below="@id/txtusrpass"
+        />
+
+    <EditText
+        android:id="@+id/edtlname"
+        android:hint="lastName here"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_toRightOf="@+id/txtlname"
+        android:layout_below="@+id/edtfname"/>
+
+    <Button
+        android:text="Submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@id/btnSubmit"
+        android:layout_below="@id/txtlname"
+        />
+
+
+
+
+</RelativeLayout>
