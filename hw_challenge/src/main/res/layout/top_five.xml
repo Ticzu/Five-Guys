@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hw_challenge.TopFiveActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:text= "Top 5 Players"
+            android:gravity="center"
+            android:layout_width="match_parent"
+
+            android:layout_height="52dp" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="6">
+
+            <TextView
+                android:layout_width="97dp"
+                android:layout_height="40dp"
+                android:layout_column="0"
+                android:layout_row="0"
+                android:gravity="center"
+                android:text="Player name" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_column="1"
+                android:layout_row="0"
+                android:gravity="center"
+                android:text="Score" />
+
+            <TextView
+                android:id="@+id/player1"
+                android:layout_width="97dp"
+                android:layout_height="40dp"
+                android:layout_column="0"
+                android:layout_row="1"
+                android:gravity="center"
+                android:text="Player1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_column="1"
+                android:layout_row="1"
+                android:gravity="center"
+                android:text="Score" />
+
+            <TextView
+                android:id="@+id/player2"
+                android:layout_width="97dp"
+                android:layout_height="40dp"
+                android:layout_column="0"
+                android:layout_row="2"
+                android:gravity="center"
+                android:text="Player2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_column="1"
+                android:layout_row="2"
+                android:gravity="center"
+                android:text="Score" />
+
+            <TextView
+                android:id="@+id/player3"
+                android:layout_width="97dp"
+                android:layout_height="40dp"
+                android:layout_column="0"
+                android:layout_row="3"
+                android:gravity="center"
+                android:text="Player3" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+
+                android:layout_column="1"
+                android:layout_row="3"
+                android:gravity="center"
+                android:text="Score" />
+
+            <TextView
+                android:id="@+id/player4"
+                android:layout_width="97dp"
+                android:layout_height="40dp"
+                android:layout_column="0"
+                android:layout_row="4"
+                android:gravity="center"
+                android:text="Player4" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_column="1"
+                android:layout_row="4"
+                android:gravity="center"
+                android:text="Score" />
+
+            <TextView
+                android:id="@+id/player5"
+                android:layout_width="97dp"
+                android:layout_height="40dp"
+                android:layout_column="0"
+                android:layout_row="5"
+                android:gravity="center"
+                android:text="Player5" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_column="1"
+                android:layout_row="5"
+                android:gravity="center"
+                android:text="Score" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_column="1"
+                android:layout_row="7"
+                android:text="back"
+                android:layout_width="198dp"
+                android:onClick="onClickBack"/>
+
+        </GridLayout>
+    </LinearLayout>
+
+</RelativeLayout>
+
