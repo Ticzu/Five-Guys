@@ -44,49 +44,26 @@ public class simplelogin
             @Override public void onClick(View v) {
                 boolean b = true;
                 boolean a = true;
-                if(edtusr.getText().toString().trim().isEmpty() && edtpass.getText().toString()
-                                                                           .trim().isEmpty()) {
+                if(edtusr.getText().toString().trim().isEmpty() && edtpass.getText().toString().trim().isEmpty()) {
                     b = false;
-                    Toast.makeText(getBaseContext(),"Please Enter Your LogIn Account", Toast
-                                                                                          .LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(),"Please Enter Your LogIn Account", Toast.LENGTH_SHORT).show();
                 }
 
-                if(edtusr.getText().toString().trim().isEmpty() ^ edtpass.getText().toString()
-                                                                           .trim().isEmpty()) {
+                if(edtusr.getText().toString().trim().isEmpty() || edtpass.getText().toString().trim().isEmpty()) {
                     a = false;
-                    Toast.makeText(getBaseContext(),"Please Enter Your Username / Password", Toast
-                                                                                               .LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(),"Please Enter Your Username / Password", Toast.LENGTH_SHORT).show();
                 }
-                if(edtusr.getText().toString().trim().equals(usr) &&
-                           edtpass.getText().toString().trim().equals(psw)) {
-                    usrWel = edtusr.getText().toString();
-                    islogin = true;
-                    Toast.makeText(getApplicationContext(),
-                            "Redirecting...",Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(getApplicationContext(), hw_challenge.class );
-                    i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-                    Bundle bundle = new Bundle();
-                    //Add your data to bundle
-                    bundle.putString("username", edtusr.getText().toString());
-                    bundle.putString("password", edtpass.getText().toString());
-                    //Add the bundle to the intent
-                    i.putExtras(bundle);
-                    startActivity(i);
-                    edtpass.setText("");
-                    edtusr.setText("");
-                }else {
-                    counter--;
-                    Toast.makeText(getApplicationContext(), "Wrong Credentials, times left: " + counter,Toast.LENGTH_SHORT).show();
-                    if (counter == 0) {
-                        edtusr.setEnabled(false);
-                        edtpass.setEnabled(false);
-                    }
-                }
+
+
+
             }
         });
 
+        
+
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
+
                 Toast.makeText(getApplicationContext(),
                         "Redirecting...",Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getApplicationContext(), Register.class );

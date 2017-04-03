@@ -2,6 +2,7 @@ package com.example.hw_challenge;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,7 +32,6 @@ import java.net.URL;
 public class Register extends Activity {
     EditText username, fname, lname, password;
     String Username, Firstname, Lastname, Password;
-    TextView display;
     Button btnSubmit;
     DatabaseReference myRef;
     Context ctx = this;
@@ -45,7 +45,6 @@ public class Register extends Activity {
         fname = (EditText) findViewById(R.id.edtfname);
         lname = (EditText) findViewById(R.id.edtlname);
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
-        display = (TextView)findViewById(R.id.display);
 
         myRef = FirebaseDatabase.getInstance().getReference();
 
@@ -56,7 +55,7 @@ public class Register extends Activity {
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
                 Log.d("sucess", "Value is: " + value);
-                display.setText(value);
+
             }
 
             @Override
@@ -71,13 +70,21 @@ public class Register extends Activity {
             @Override
             public void onClick(View v) {
                 Username = username.getText().toString();
-                System.out.println(Username);
                 Firstname = fname.getText().toString();
                 Lastname = lname.getText().toString();
                 Password = password.getText().toString();
                 ThreadTask threadTask = new ThreadTask();
-                threadTask.execute(Username, Password, Firstname, Lastname);
-                Toast.makeText(ctx, "Congratulations!", Toast.LENGTH_SHORT).show();
+                System.out.println(Username);
+                if (Username.equals("") || Firstname.equals("") || Lastname.equals("") || Password.equals("")) {
+                    Toast.makeText(ctx, "You must fill in all the blanks", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(getApplicationContext(), Register.class);
+                    startActivity(i);
+                } else {
+                    threadTask.execute(Username, Password, Firstname, Lastname);
+                    Toast.makeText(ctx, "Congratulations!", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(getApplicationContext(), simplelogin.class);
+                    startActivity(i);
+                }
             }
         });
     }
