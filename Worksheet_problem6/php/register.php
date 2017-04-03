@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-require = "init.php";
+require "init.php";
 
 $name = $_POST["name"];
 $password = $_POST["password"];
