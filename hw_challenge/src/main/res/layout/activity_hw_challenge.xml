@@ -137,6 +137,16 @@
         android:layout_alignBottom="@+id/result"
         android:onClick="onClickSubmit" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/inPut1"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/result"
+        android:text="Top5"
+        android:onClick="onClickTop5"/>
 
 
 
