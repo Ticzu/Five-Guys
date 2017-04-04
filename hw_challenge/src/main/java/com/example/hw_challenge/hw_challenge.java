@@ -86,37 +86,6 @@ public class hw_challenge extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                myRef.child("Users").child(usr).orderByChild("test").limitToLast(1).addChildEventListener(new ChildEventListener() {
-                    @Override
-                    public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
-
-                        if () System.out.println(dataSnapshot.getValue());
-                    }
-
-                    @Override
-                    public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-
-                    @Override
-                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-                    }
-
-                    @Override
-                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-                    }
-
-
-                    // ...
-                });
-
                 int selectedId = rg.getCheckedRadioButtonId();//recording the status of radioGroup
                 Log.i("dd", String.valueOf(selectedId));
 

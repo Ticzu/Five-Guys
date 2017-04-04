@@ -72,9 +72,10 @@ public class TopFiveActivity extends AppCompatActivity {
         btBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), hw_challenge.class);
-                i.putExtra("curr_username", usr);
-                startActivity(i);
+//                Intent i = new Intent(getApplicationContext(), hw_challenge.class);
+//                i.putExtra("curr_username", usr);
+//                startActivity(i);
+                finish();
             }
         });
 
