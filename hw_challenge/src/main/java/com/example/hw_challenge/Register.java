@@ -32,9 +32,10 @@ import java.net.URL;
 public class Register extends Activity {
     EditText username, fname, lname, password;
     String Username, Firstname, Lastname, Password;
-    Button btnSubmit;
+    Button btnSubmit, btnBack;
     DatabaseReference myRef;
     Context ctx = this;
+    boolean exist = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,7 @@ public class Register extends Activity {
         fname = (EditText) findViewById(R.id.edtfname);
         lname = (EditText) findViewById(R.id.edtlname);
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
+        btnBack = (Button)findViewById(R.id.btnBack);
 
         myRef = FirebaseDatabase.getInstance().getReference();
 
@@ -65,6 +67,14 @@ public class Register extends Activity {
             }
         });
 
+        btnBack.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(getApplicationContext(), simplelogin.class);
+                startActivity(i);
+            }
+        });
+
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,10 +90,13 @@ public class Register extends Activity {
                    // Intent i = new Intent(getApplicationContext(), Register.class);
                     //startActivity(i);
                 } else {
+
                     threadTask.execute(Username, Password, Firstname, Lastname);
-                    Toast.makeText(ctx, "Congratulations!", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(getApplicationContext(), simplelogin.class);
-                    startActivity(i);
+                    //Toast.makeText(ctx, "Congratulations!", Toast.LENGTH_SHORT).show();
+                    if(!exist) {
+                        Intent i = new Intent(getApplicationContext(), simplelogin.class);
+                        startActivity(i);
+                    }
                 }
             }
         });
@@ -105,17 +118,36 @@ public class Register extends Activity {
 
         @Override
         protected String doInBackground(String... params) {
-            String username = params[0];
-            String password = params[1];
-            String firstname = params[2];
-            String lastname = params[3];
-            String data = "";
+            final String username = params[0];
+            final String password = params[1];
+            final String firstname = params[2];
+            final String lastname = params[3];
+            //fianl String data = "";
             int tempt;
 
-            DatabaseReference User = myRef.child("Users").child(username);
-            User.child("password").setValue(password);
-            User.child("firstname").setValue(firstname);
-            User.child("lastname").setValue(lastname);
+            myRef.child("Users").child(username).child("password").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+                    if (dataSnapshot.exists()) {
+                        Context context = getApplicationContext();
+                        Toast.makeText(context, "user name already exist", Toast.LENGTH_SHORT).show();
+                        exist = true;
+                        }else{
+                        exist = false;
+                        DatabaseReference User = myRef.child("Users").child(username);
+                        User.child("password").setValue(password);
+                        User.child("firstname").setValue(firstname);
+                        User.child("lastname").setValue(lastname);
+                    }
+                    }
+                @Override
+                public void onCancelled(DatabaseError e){
+                    Context context = getApplicationContext();
+                    Toast.makeText(context, "connection fail", Toast.LENGTH_SHORT).show();
+                }
+                });
 
 //            try{
 //                URL url = new URL("http://155.41.92.23/MYCODE/register.php");
