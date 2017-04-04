@@ -25,9 +25,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * Created by shou on 4/2/2017.
- */
 
 public class Register extends Activity {
     EditText username, fname, lname, password;
@@ -90,27 +87,15 @@ public class Register extends Activity {
                    // Intent i = new Intent(getApplicationContext(), Register.class);
                     //startActivity(i);
                 } else {
-
                     threadTask.execute(Username, Password, Firstname, Lastname);
                     //Toast.makeText(ctx, "Congratulations!", Toast.LENGTH_SHORT).show();
-                    if(!exist) {
-                        Intent i = new Intent(getApplicationContext(), simplelogin.class);
-                        startActivity(i);
-                    }
+
+//                        Intent i = new Intent(getApplicationContext(), simplelogin.class);
+//                        startActivity(i);
+
                 }
             }
         });
-    }
-
-
-    public void register(View view) {
-        Username = username.getText().toString();
-        System.out.println(Username);
-        Firstname = fname.getText().toString();
-        Lastname = lname.getText().toString();
-        Password = password.getText().toString();
-        ThreadTask threadTask = new ThreadTask();
-        threadTask.execute(Username, Password, Firstname, Lastname);
     }
 
 
@@ -125,7 +110,7 @@ public class Register extends Activity {
             //fianl String data = "";
             int tempt;
 
-            myRef.child("Users").child(username).child("password").addValueEventListener(new ValueEventListener() {
+            myRef.child("Users").child(username).child("password").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     // This method is called once with the initial value and again
@@ -133,13 +118,13 @@ public class Register extends Activity {
                     if (dataSnapshot.exists()) {
                         Context context = getApplicationContext();
                         Toast.makeText(context, "user name already exist", Toast.LENGTH_SHORT).show();
-                        exist = true;
                         }else{
-                        exist = false;
                         DatabaseReference User = myRef.child("Users").child(username);
                         User.child("password").setValue(password);
                         User.child("firstname").setValue(firstname);
                         User.child("lastname").setValue(lastname);
+                        Intent i = new Intent(getApplicationContext(), simplelogin.class);
+                        startActivity(i);
                     }
                     }
                 @Override
