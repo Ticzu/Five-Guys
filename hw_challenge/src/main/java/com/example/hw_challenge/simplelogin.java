@@ -108,9 +108,6 @@ public class simplelogin
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
-
-                Toast.makeText(getApplicationContext(),
-                        "Redirecting...",Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getApplicationContext(), Register.class );
                 i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 Bundle bundle = new Bundle();
