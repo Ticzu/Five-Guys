@@ -77,8 +77,8 @@ public class Register extends Activity {
                 System.out.println(Username);
                 if (Username.equals("") || Firstname.equals("") || Lastname.equals("") || Password.equals("")) {
                     Toast.makeText(ctx, "You must fill in all the blanks", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(getApplicationContext(), Register.class);
-                    startActivity(i);
+                   // Intent i = new Intent(getApplicationContext(), Register.class);
+                    //startActivity(i);
                 } else {
                     threadTask.execute(Username, Password, Firstname, Lastname);
                     Toast.makeText(ctx, "Congratulations!", Toast.LENGTH_SHORT).show();

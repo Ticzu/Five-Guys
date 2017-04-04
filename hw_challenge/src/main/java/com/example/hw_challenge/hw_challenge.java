@@ -37,6 +37,7 @@ public class hw_challenge
     private EditText edtResult;
     private RadioGroup radioGrp;
     private  simplelogin login;
+    private String usr;
     int checkid;
     int countSubmit = 0;
     int result;
@@ -49,6 +50,13 @@ public class hw_challenge
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hw_challenge);
+
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            usr = extras.getString("curr_username");
+
+        }
+        Log.i("username", usr);
 
         tvinPut1 = (TextView)findViewById(R.id.inPut1);
         tvinPut2 = (TextView)findViewById(R.id.inPut2);
