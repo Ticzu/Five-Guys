@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">CustomListView_sse</string>
+    <string-array name="episodes">
+        <item>Spock\'s Brain</item>
+        <item>Arena</item>
+        <item>This Side of Paradise</item>
+        <item>Mirror, Mirror</item>
+        <item>Plato\'s Step Children</item>
+        <item>The Naked Time</item>
+        <item>The Trouble With Tribbles</item>
+    </string-array>
+    <string-array name="episodes_url">
+        <item>http://memory-alpha.wikia.com/wiki/Spock%27s_Brain_(episode)</item>
+        <item>http://memory-alpha.wikia.com/wiki/Arena</item>
+        <item>http://memory-alpha.wikia.com/wiki/This_Side_of_Paradise</item>
+        <item>http://memory-alpha.wikia.com/wiki/Mirror%2C_Mirror_(episode)</item>
+        <item>http://memory-alpha.wikia.com/wiki/Plato%27s_Stepchildren_(episode)</item>
+        <item>http://memory-alpha.wikia.com/wiki/The_Naked_Time_(episode)</item>
+        <item>http://memory-alpha.wikia.com/wiki/The_Trouble_with_Tribbles_(episode)</item>
+    </string-array>
+
+    <string-array name="episode_descriptions">
+        <item>Some people in swimsuits steal Spock\'s Brain. Hmm...</item>
+        <item>Captain Kirk fights a plastic 3D printed lizard.</item>
+        <item>A flower explodes in Spock\'s face and makes him happy. </item>
+        <item>Alternative Universe</item>
+        <item>Captain Kirk and Spock play dress up.</item>
+        <item>Sulu goes nuts.</item>
+        <item>So cute!!</item>
+    </string-array>
+
+
+</resources>
