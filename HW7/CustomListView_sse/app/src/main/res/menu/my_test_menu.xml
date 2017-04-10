@@ -1,29 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/mnu_zero"
-        android:title="Menu0"
+        android:title="Beam Me Up"
         android:icon ="@drawable/ic_local_florist_black_24dp"
-        app:showAsAction="ifRoom">
+        >
     </item>
 
 
     <item
         android:id="@+id/mnu_one"
-        android:title="Menu1"
+        android:title="Nuclear Wessels"
         android:icon ="@drawable/minispocksbrain_24x24"
-        app:showAsAction="ifRoom">
+        >
     </item>
 
 
     <item
         android:id="@+id/mnu_two"
-        android:title="Menu2"
+        android:title="Phasers on Stun"
         android:icon ="@drawable/ic_card_giftcard_black_24dp"
-        app:showAsAction="ifRoom">
+        >
     </item>
 
 
+    <item
+        android:id="@+id/mnu_three"
+        android:title="Live Long and Prosper"
+        android:icon ="@drawable/ic_card_giftcard_black_24dp"
+        >
+    </item>
+
+
+    <item
+        android:id="@+id/mnu_four"
+        android:title="Kahn!!!"
+        android:icon ="@drawable/ic_card_giftcard_black_24dp"
+        >
+    </item>
 </menu>

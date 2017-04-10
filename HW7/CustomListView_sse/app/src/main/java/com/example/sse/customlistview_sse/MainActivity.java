@@ -1,13 +1,18 @@
 package com.example.sse.customlistview_sse;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.media.Rating;
 import android.net.Uri;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,12 +28,12 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.MediaController;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
@@ -106,17 +111,97 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.mnu_zero) {
-            Toast.makeText(getBaseContext(), "Menu Zero.", Toast.LENGTH_LONG).show();
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://shop.startrek.com/info.php"));
+            startActivity(browserIntent);
             return true;
         }
 
         if (id == R.id.mnu_one) {
-            Toast.makeText(getBaseContext(), "Ring ring, Hi Mom.", Toast.LENGTH_LONG).show();
+            Intent phoneCallMom = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "1-800-startrk"));
+            if (ContextCompat.checkSelfPermission(MainActivity.this,
+                    Manifest.permission.CALL_PHONE)
+                    != PackageManager.PERMISSION_GRANTED) {
+
+                // Should we show an explanation?
+                if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,
+                        Manifest.permission.CALL_PHONE)) {
+
+                    // Show an explanation to the user *asynchronously* -- don't block
+                    // this thread waiting for the user's response! After the user
+                    // sees the explanation, try again to request the permission.
+
+                } else {
+
+                    // No explanation needed, we can request the permission.
+
+                    ActivityCompat.requestPermissions(MainActivity.this,
+                            new String[]{Manifest.permission.CALL_PHONE},
+                            99);
+
+                    // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                    // app-defined int constant. The callback method gets the
+                    // result of the request.
+                }
+            } else {
+                Log.i("dd","dd");
+
+                startActivity(phoneCallMom);
+            }
             return true;
         }
 
+        if (id == R.id.mnu_two) {
 
-            return super.onOptionsItemSelected(item);  //if none of the above are true, do the default and return a boolean.
+            if (ContextCompat.checkSelfPermission(MainActivity.this,
+                    Manifest.permission.SEND_SMS)
+                    != PackageManager.PERMISSION_GRANTED) {
+
+                Log.i("dd","hahahahaha");
+                // Should we show an explanation?
+                if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,
+                        Manifest.permission.SEND_SMS)) {
+
+
+                    // Show an explanation to the user *asynchronously* -- don't block
+                    // this thread waiting for the user's response! After the user
+                    // sees the explanation, try again to request the permission.
+
+                } else {
+
+                    // No explanation needed, we can request the permission.
+
+                    ActivityCompat.requestPermissions(MainActivity.this,
+                            new String[]{Manifest.permission.SEND_SMS},
+                            88);
+
+                    // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                    // app-defined int constant. The callback method gets the
+                    // result of the request.
+                }
+            } else {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + "666666666"));
+                intent.putExtra("sms_body", "Ouch!");
+                startActivity(intent);
+            }
+        }
+
+        if (id == R.id.mnu_three) {
+            MediaPlayer mp = MediaPlayer.create(MainActivity.this, R.raw.slayer);
+            mp.start();
+        }
+
+        if (id == R.id.mnu_four) {
+            VideoView video=(VideoView) findViewById(R.id.video1);
+            video.setVisibility(View.VISIBLE);
+            MediaController mediaController = new MediaController(this);
+            mediaController.setAnchorView(video);
+            video.setMediaController(mediaController);
+            video.setKeepScreenOn(true);
+            video.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.video);
+            video.start();
+            video.requestFocus();
+        }
+        return super.onOptionsItemSelected(item);  //if none of the above are true, do the default and return a boolean.
     }
 
 
