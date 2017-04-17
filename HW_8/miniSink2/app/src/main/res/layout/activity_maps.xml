@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context="com.example.sse.minisink.MapsActivity" >
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:context="com.example.sse.mappingapp.MapsActivity"
+        android:layout_weight="3"
+/>
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/textView3"
+            android:layout_marginStart="20dp"
+            android:layout_alignBaseline="@+id/btnCurrentLocation"
+            android:layout_alignBottom="@+id/btnCurrentLocation"
+            android:layout_toRightOf="@id/btnCurrentLocation"
+            android:layout_toEndOf="@+id/btnGeoLocate" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current Location"
+            android:layout_weight="1"
+            android:id="@+id/btnCurrentLocation"
+            android:onClick="onSomeButtonClick"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="12dp"
+            android:layout_alignEnd="@+id/btnGeoLocate"
+            android:layout_alignStart="@+id/btnGeoLocate"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GeoLocate"
+            android:layout_weight="1"
+            android:id="@+id/btnGeoLocate"
+            android:onClick="onSomeButtonClick"
+            android:layout_centerVertical="true"
+            android:layout_alignStart="@+id/btnPinLatLong" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtLat"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/btnGeoLocate"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="23dp"
+            android:hint="Latitude" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="pin Lat/Long"
+            android:layout_weight="1"
+            android:id="@+id/btnPinLatLong"
+            android:onClick="onSomeButtonClick"
+            android:layout_marginStart="22dp"
+            android:layout_alignTop="@+id/edtLat"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtLong"
+            android:hint="Longitude"
+            android:layout_alignBaseline="@+id/edtLat"
+            android:layout_alignBottom="@+id/edtLat"
+            android:layout_toEndOf="@+id/edtLat"
+            android:layout_marginStart="15dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtGeoLocation"
+            android:hint="Some Place  Famous"
+            android:layout_centerVertical="true"
+            android:layout_alignStart="@+id/edtLat"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:id="@+id/btnEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="End"
+            android:layout_alignBaseline="@+id/btnStart"
+            android:layout_alignBottom="@+id/btnStart"
+            android:layout_toEndOf="@+id/textView3"/>
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start"
+            android:layout_alignBottom="@+id/btnCurrentLocation"
+            android:layout_toEndOf="@+id/btnEnd"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
