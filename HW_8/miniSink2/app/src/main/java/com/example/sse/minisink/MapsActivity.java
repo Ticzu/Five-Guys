@@ -429,7 +429,7 @@ public class MapsActivity
             mHandler.postDelayed(new Runnable() {
                 @Override public void run() {
                     mHandler.postDelayed(this, 1000);
-                    if ( ContextCompat.checkSelfPermission(getBaseContext(), android.Manifest.permission
+                    if ( ContextCompat.checkSelfPermission(MapsActivity.this.getBaseContext(), android.Manifest.permission
                                                                       .ACCESS_COARSE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
 
                         ActivityCompat.requestPermissions(getParent(), new String[] {  android.Manifest
