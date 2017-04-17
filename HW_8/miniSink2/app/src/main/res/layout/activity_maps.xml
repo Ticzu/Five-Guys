@@ -114,6 +114,14 @@ tools:context="com.example.sse.minisink.MapsActivity" >
             android:layout_alignBottom="@+id/btnCurrentLocation"
             android:layout_toEndOf="@+id/btnEnd"/>
 
+        <Button
+            android:id="@+id/btnCal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/edtLong"
+            android:layout_toEndOf="@+id/btnEnd"
+            android:text="calculate" />
+
     </RelativeLayout>
 
 

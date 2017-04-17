@@ -84,6 +84,7 @@ public class MapsActivity
     private static final int MY_PERMISSION_ACCESS_COARSE_LOCATION = 11;
     private Button btnStart;
     private Button btnEnd;
+    private Button btnCal;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -132,6 +133,7 @@ public class MapsActivity
         btnPinLatLong = (Button) findViewById(R.id.btnPinLatLong);
         edtLat = (EditText) findViewById(R.id.edtLat);
         edtLon = (EditText) findViewById(R.id.edtLong);
+        btnCal = (Button) findViewById(R.id.btnCal);
 
         btnGeoLocate = (Button) findViewById(R.id.btnGeoLocate);
         edtGeoLocation = (EditText) findViewById(R.id.edtGeoLocation);
@@ -167,7 +169,7 @@ public class MapsActivity
                         }
                         Location loc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                         double aLat = loc.getLatitude();
-                        double aLong = loc.getAltitude();
+                        double aLong = loc.getLongitude();
                         LatLng latLng = new LatLng(aLat, aLong);
                         alLatLngs.add(latLng);
                     }
@@ -182,6 +184,30 @@ public class MapsActivity
                 timer.cancel();
                 timer.purge();
                 System.out.println(alLatLngs.toString());
+            }
+        });
+
+        btnCal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                double lat1 = alLatLngs.get(0).latitude;
+                double lon1 = alLatLngs.get(0).longitude;
+                double lat2 = alLatLngs.get(alLatLngs.size()-1).latitude;
+                double lon2 = alLatLngs.get(alLatLngs.size()-1).longitude;
+
+
+                Location locationA = new Location("point A");
+
+                locationA.setLatitude(lat1);
+                locationA.setLongitude(lon1);
+
+                Location locationB = new Location("point B");
+
+                locationB.setLatitude(lat2);
+                locationB.setLongitude(lon2);
+
+                float distance = locationA.distanceTo(locationB);
+                Toast.makeText(MapsActivity.this, " (moved = " + distance + " meters)", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -234,9 +260,10 @@ public class MapsActivity
                                                                                      .ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getBaseContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     }
                     Location loc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                    final double lat = loc.getLatitude();
-                    final double alt = loc.getAltitude();
-                    Log.i(MYTAG,"Latitude :" + String.valueOf(lat) + "   Altitude:" + String.valueOf
+                    double lat = loc.getLatitude();
+                    double lon = loc.getLongitude();
+                    double alt = loc.getAltitude();
+                    Log.i(MYTAG,"Latitude :" + String.valueOf(lat) + "   Longitude :" + String.valueOf(lon) + "   Altitude:" + String.valueOf
                                                                                                (alt));
 
                 }
